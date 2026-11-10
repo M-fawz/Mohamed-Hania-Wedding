@@ -27,7 +27,7 @@
     const c = $('#dust');
     const ctx = c.getContext('2d');
     const golds = ['#C9A55E', '#E8D08F', '#F6E7B8', '#B8904A', '#DCC07C'];
-    let W = 0, H = 0, motes = [], flakes = [];
+    let W = 0, H = 0, motes = [], flakes = [], sparks = [];
 
     const mote = (anywhere) => ({
       x: Math.random() * W,
@@ -69,8 +69,35 @@
       }
     }
 
+    function spark(x, y, n, spread) {
+      if (reduceMotion) return;
+      for (let i = 0; i < n; i++) {
+        const a = Math.random() * 6.283, v = Math.random() * spread;
+        sparks.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 0.3, s: 1.5 + Math.random() * 2.5, life: 1, col: golds[(Math.random() * golds.length) | 0] });
+      }
+    }
+    function star(x, y, s) {
+      ctx.beginPath();
+      ctx.moveTo(x, y - s); ctx.quadraticCurveTo(x, y, x + s, y); ctx.quadraticCurveTo(x, y, x, y + s);
+      ctx.quadraticCurveTo(x, y, x - s, y); ctx.quadraticCurveTo(x, y, x, y - s); ctx.fill();
+    }
+    let lastMove = 0;
+    addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const now = performance.now();
+      if (now - lastMove > 45) { lastMove = now; spark(e.clientX, e.clientY, 1, 0.6); }
+    }, { passive: true });
+    addEventListener('pointerdown', (e) => spark(e.clientX, e.clientY, 10, 2.4), { passive: true });
+
     function frame(t) {
       ctx.clearRect(0, 0, W, H);
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const p = sparks[i];
+        p.x += p.vx; p.y += p.vy; p.vy += 0.03; p.vx *= 0.97; p.life -= 0.022;
+        if (p.life <= 0) { sparks.splice(i, 1); continue; }
+        ctx.globalAlpha = p.life; ctx.fillStyle = p.col; star(p.x, p.y, p.s * (0.6 + p.life * 0.6));
+      }
+      ctx.globalAlpha = 1;
       for (const m of motes) {
         m.y += m.vy;
         m.x += Math.sin(t * 0.0004 * m.f + m.ph) * 0.22;
@@ -209,6 +236,38 @@
     }, T[3]);
   }
   openBtn.addEventListener('click', openInvite, { once: true });
+
+  /* ---------------- Gate mandala (generative) ---------------- */
+  const mandala = $('#mandala');
+  if (mandala) {
+    const P = (deg, r) => [r * Math.cos((deg * Math.PI) / 180), r * Math.sin((deg * Math.PI) / 180)];
+    let s = '<g fill="none" stroke="currentColor" stroke-width="1">';
+    s += '<g class="r1">';
+    for (let i = 0; i < 24; i++) { const a = i * 15; const [x1, y1] = P(a, 110); const [x2, y2] = P(a, 170);
+      const [c1x, c1y] = P(a - 7, 145); const [c2x, c2y] = P(a + 7, 145);
+      s += `<path d="M${x1} ${y1} Q${c1x} ${c1y} ${x2} ${y2} Q${c2x} ${c2y} ${x1} ${y1}Z"/>`; }
+    s += '<circle r="104"/><circle r="176"/></g><g class="r2">';
+    for (let i = 0; i < 16; i++) { const a = i * 22.5; const [x, y] = P(a, 215); s += `<circle cx="${x}" cy="${y}" r="22"/>`; }
+    s += '<circle r="238" stroke-dasharray="2 6"/></g><g class="r3">';
+    for (let i = 0; i < 48; i++) { const [x, y] = P(i * 7.5, 268); s += `<circle cx="${x}" cy="${y}" r="2" fill="currentColor"/>`; }
+    s += '<circle r="286"/></g>';
+    s += '<rect x="-62" y="-62" width="124" height="124"/><rect x="-62" y="-62" width="124" height="124" transform="rotate(45)"/><circle r="40"/></g>';
+    mandala.innerHTML = s;
+  }
+
+  /* ---------------- Scroll progress + parallax ---------------- */
+  const prog = $('#progress');
+  const mono = $('.hero-monogram');
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      prog.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+      if (!reduceMotion && scrollY < innerHeight * 1.2) mono.style.translate = `0 ${scrollY * 0.25}px`;
+      ticking = false;
+    });
+  }, { passive: true });
 
   /* ---------------- Arch leaves (couple illustration) ---------------- */
   const leaves = $('#leaves');
