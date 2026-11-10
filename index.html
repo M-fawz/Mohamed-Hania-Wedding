@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mohamed &amp; Hania · 27.11.2026</title>
+  <meta name="description" content="You are invited to the wedding of Mohamed &amp; Hania — Friday 27 November 2026, Sofitel Cairo Downtown Nile. بحضوركم تكتمل فرحتنا">
+  <meta name="theme-color" content="#4F6152">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohamed &amp; Hania · 27.11.2026">
+  <meta property="og:description" content="You're invited to celebrate our wedding by the Nile — Sofitel Cairo Downtown Nile, Friday 27 November, 7 PM. بحضوركم تكتمل فرحتنا">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="preload" as="image" href="assets/venue-blur.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-locked">
+
+  <!-- Gold dust (generative) -->
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <!-- ============ ENVELOPE GATE ============ -->
+  <div class="gate" id="gate">
+    <div class="gate-ghost" aria-hidden="true">Mohamed &amp; Hania</div>
+    <div class="gate-inner">
+      <p class="eyebrow gate-eyebrow">You are invited <span class="dot">◆</span> <span lang="ar">أنتم مدعوون</span></p>
+
+      <button class="envelope" id="openBtn" type="button" aria-label="Open the invitation">
+        <span class="env-back"></span>
+        <span class="letter">
+          <span class="letter-inner">
+            <span class="l-bism" lang="ar">بسم الله الرحمن الرحيم</span>
+            <span class="l-names">Mohamed <i>&amp;</i> Hania</span>
+            <span class="l-date">27 · 11 · 2026</span>
+          </span>
+        </span>
+        <span class="env-pocket"></span>
+        <span class="env-flap-wrap"><span class="env-flap"></span></span>
+        <span class="seal" aria-hidden="true"><span class="seal-text">M<i>&amp;</i>H</span></span>
+      </button>
+
+      <p class="gate-hint">Tap the seal to open the invitation<br><span lang="ar">اضغط على الختم لفتح الدعوة</span></p>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <svg class="corner c-tl" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner c-tr" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner c-bl" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner c-br" aria-hidden="true"><use href="#corner"/></svg>
+      <div class="hero-monogram" aria-hidden="true">M<span>&amp;</span>H</div>
+
+      <div class="hero-inner">
+        <p class="bismillah" lang="ar" data-hero="1">بسم الله الرحمن الرحيم</p>
+        <svg class="divider" data-hero="2" aria-hidden="true"><use href="#divider"/></svg>
+        <p class="eyebrow" data-hero="3">Together with their families</p>
+
+        <h1 class="names" data-hero="4">
+          <span class="name">Mohamed</span>
+          <span class="amp">&amp;</span>
+          <span class="name">Hania</span>
+        </h1>
+
+        <p class="invite-line" data-hero="5">request the pleasure of your company<br>at the celebration of their marriage</p>
+
+        <div class="dateline" data-hero="6">
+          <span class="dl-side">Friday</span>
+          <span class="dl-mid"><b>27</b><small>November 2026</small></span>
+          <span class="dl-side">7 PM</span>
+        </div>
+        <p class="hijri" lang="ar" data-hero="7"><span>الجمعة ٢٧ نوفمبر ٢٠٢٦</span> <span class="dot">◆</span> <span>١٧ جمادى الآخرة ١٤٤٨ هـ</span></p>
+        <p class="hero-venue" data-hero="8">Sofitel Cairo Downtown Nile <span class="dot">◆</span> <span>The Nile Ballroom</span></p>
+      </div>
+
+      <a class="scroll-cue" href="#countdown" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ============ COUNTDOWN ============ -->
+    <section class="countdown" id="countdown">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>Counting the moments <span class="dot">◆</span> <span lang="ar">فاضل على الفرح</span></p>
+        <h2 class="section-title" data-reveal>Until forever begins</h2>
+
+        <div class="cd-grid" id="cd" data-reveal>
+          <div class="cd-cell"><span class="cd-num" data-unit="d">00</span><span class="cd-lbl">Days<em lang="ar">يوم</em></span></div>
+          <div class="cd-cell"><span class="cd-num" data-unit="h">00</span><span class="cd-lbl">Hours<em lang="ar">ساعة</em></span></div>
+          <div class="cd-cell"><span class="cd-num" data-unit="m">00</span><span class="cd-lbl">Minutes<em lang="ar">دقيقة</em></span></div>
+          <div class="cd-cell"><span class="cd-num" data-unit="s">00</span><span class="cd-lbl">Seconds<em lang="ar">ثانية</em></span></div>
+        </div>
+        <p class="cd-done" id="cdDone" hidden></p>
+        <p class="cd-note" data-reveal>Friday, 27 November 2026 · 7:00 PM, Cairo time</p>
+      </div>
+    </section>
+
+    <!-- ============ VERSE ============ -->
+    <section class="verse">
+      <div class="wrap narrow">
+        <svg class="verse-star" data-reveal aria-hidden="true"><use href="#star8"/></svg>
+        <p class="verse-ar" lang="ar" data-reveal>﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
+        <p class="verse-ref" lang="ar" data-reveal>سورة الروم — ٢١</p>
+        <p class="verse-en" data-reveal>“Among His signs: He created for you spouses from among yourselves, that you may find peace in them — and He placed between you love and mercy.”</p>
+      </div>
+    </section>
+
+    <!-- ============ STORY / COUPLE ============ -->
+    <section class="story">
+      <div class="wrap story-grid">
+        <figure class="couple" data-reveal>
+          <svg viewBox="0 0 300 400" role="img" aria-label="Illustration of a bride and groom under an arch">
+            <defs>
+              <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#A47C3B"/><stop offset=".45" stop-color="#F1DFA8"/><stop offset="1" stop-color="#B08840"/>
+              </linearGradient>
+              <linearGradient id="gSage" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#5E7262"/><stop offset="1" stop-color="#3F5044"/>
+              </linearGradient>
+              <linearGradient id="gGown" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#FFFDF8"/><stop offset="1" stop-color="#EDE4D2"/>
+              </linearGradient>
+              <radialGradient id="gHalo" cx=".5" cy=".42" r=".55">
+                <stop offset="0" stop-color="#F6E7B8" stop-opacity=".55"/><stop offset="1" stop-color="#F6E7B8" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="150" cy="200" rx="130" ry="170" fill="url(#gHalo)"/>
+            <!-- arch -->
+            <path class="draw" d="M40 384 V170 A110 110 0 0 1 260 170 V384" fill="none" stroke="url(#gGold)" stroke-width="2"/>
+            <path class="draw d2" d="M50 384 V172 A100 100 0 0 1 250 172 V384" fill="none" stroke="url(#gGold)" stroke-width=".8" opacity=".7"/>
+            <g id="leaves" fill="#7D8F7A"></g>
+            <circle cx="150" cy="52" r="3.2" fill="url(#gGold)"/>
+            <!-- groom -->
+            <g fill="url(#gSage)">
+              <circle cx="120" cy="96" r="16"/>
+              <path d="M104 92 Q106 74 121 75 Q136 76 136 92 Q130 82 120 83 Q110 83 104 92Z" fill="#33433A"/>
+              <rect x="114" y="108" width="12" height="14" rx="4"/>
+              <path d="M94 132 Q98 118 113 117 L127 117 Q142 118 146 132 L142 196 L144 226 L96 226 L98 196 Z"/>
+              <path d="M100 224 L119 224 L117 372 L104 372 Z"/>
+              <path d="M121 224 L140 224 L135 372 L123 372 Z"/>
+              <ellipse cx="108" cy="374" rx="10" ry="4"/><ellipse cx="131" cy="374" rx="10" ry="4"/>
+              <path d="M96 134 Q90 170 94 214" fill="none" stroke="url(#gSage)" stroke-width="11" stroke-linecap="round"/>
+              <path d="M142 136 Q152 168 160 196" fill="none" stroke="#4E6052" stroke-width="10" stroke-linecap="round"/>
+            </g>
+            <path d="M120 118 L114 132 L120 168 L126 132 Z" fill="#FBF8F1"/>
+            <path d="M117 121 L120 128 L123 121 Z" fill="url(#gGold)"/>
+            <!-- bride -->
+            <path class="veil" d="M196 86 C232 112 240 230 256 376 L214 376 C224 282 210 160 192 98 Z" fill="#FFFFFF" opacity=".55"/>
+            <g>
+              <circle cx="186" cy="102" r="14.5" fill="#5E7262"/>
+              <circle cx="197" cy="92" r="8" fill="#4A5C4E"/>
+              <path d="M172 98 Q174 84 187 84 Q198 85 200 96 Q192 90 184 92 Q176 94 172 98Z" fill="#4A5C4E"/>
+              <rect x="182" y="114" width="9" height="12" rx="4" fill="#5E7262"/>
+              <path d="M171 132 Q186 122 202 132 L197 184 L176 184 Z" fill="url(#gGown)" stroke="#D9C9A6" stroke-width=".8"/>
+              <path d="M176 182 L197 182 C214 246 238 318 254 374 Q200 392 140 374 C150 318 166 248 176 182Z" fill="url(#gGown)" stroke="#D9C9A6" stroke-width=".8"/>
+              <path d="M186 186 C186 250 188 320 192 380" fill="none" stroke="#E2D6BC" stroke-width=".8"/>
+              <path d="M174 136 Q166 166 161 194" fill="none" stroke="#F6EFE2" stroke-width="7" stroke-linecap="round"/>
+              <path d="M200 136 Q204 168 194 198" fill="none" stroke="#F6EFE2" stroke-width="7" stroke-linecap="round"/>
+              <path d="M174 136 Q166 166 161 194" fill="none" stroke="#D9C9A6" stroke-width=".6" stroke-linecap="round"/>
+            </g>
+            <!-- joined hands -->
+            <circle cx="160" cy="196" r="5.2" fill="#E9DFCB"/>
+            <!-- bouquet -->
+            <g transform="translate(193 202)">
+              <path d="M-6 6 L0 26 L6 6Z" fill="#7D8F7A"/>
+              <ellipse cx="-9" cy="2" rx="6" ry="3" fill="#7D8F7A" transform="rotate(-30 -9 2)"/>
+              <ellipse cx="9" cy="2" rx="6" ry="3" fill="#7D8F7A" transform="rotate(30 9 2)"/>
+              <circle cx="0" cy="-4" r="6" fill="#FBF3E2" stroke="#D9BC7A" stroke-width=".8"/>
+              <circle cx="-7" cy="0" r="5" fill="#F6E7B8"/><circle cx="7" cy="0" r="5" fill="#F6E7B8"/>
+              <circle cx="-3" cy="5" r="4.5" fill="#FBF3E2" stroke="#D9BC7A" stroke-width=".6"/><circle cx="4" cy="5" r="4.5" fill="#EBD49A"/>
+            </g>
+            <!-- ground -->
+            <path d="M30 384 H270" stroke="url(#gGold)" stroke-width="1.2"/>
+            <circle cx="150" cy="384" r="3" fill="url(#gGold)"/>
+            <g class="sparks" fill="#E6CC86">
+              <circle cx="78" cy="120" r="1.6"/><circle cx="226" cy="132" r="1.4"/><circle cx="96" cy="78" r="1.2"/><circle cx="210" cy="82" r="1.7"/><circle cx="70" cy="250" r="1.2"/><circle cx="236" cy="262" r="1.4"/>
+            </g>
+          </svg>
+        </figure>
+
+        <div class="note" data-reveal>
+          <p class="eyebrow">A note from the bride &amp; groom</p>
+          <h2 class="section-title">Written in the stars,<br><span class="script">celebrated by the Nile</span></h2>
+          <p class="note-body">Some moments are too beautiful to keep to ourselves. You have shared our laughter, our milestones and our prayers — and as we begin the rest of our lives together, there is no one we would rather have beside us.</p>
+          <p class="note-body">Come for the zaffa, stay for the dancing, and take home a night we will remember for a lifetime.</p>
+          <p class="note-ar" lang="ar">بحضوركم تكتمل فرحتنا</p>
+          <p class="signature">Mohamed <span>&amp;</span> Hania</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VENUE ============ -->
+    <section class="venue" id="venue">
+      <div class="venue-bg" aria-hidden="true"></div>
+      <div class="venue-veil" aria-hidden="true"></div>
+      <div class="wrap venue-grid">
+        <figure class="arch-window" data-reveal>
+          <div class="arch-frame">
+            <img src="assets/venue.jpg" alt="Sofitel Cairo Downtown Nile lit up at night above the Nile" width="816" height="544">
+            <span class="glints" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </figure>
+
+        <div class="venue-text" data-reveal>
+          <p class="eyebrow light">The venue <span class="dot">◆</span> <span lang="ar">مكان الحفل</span></p>
+          <h2 class="venue-title">Sofitel Cairo<br>Downtown Nile</h2>
+          <p class="hall">The Nile Ballroom</p>
+          <p class="addr">Corniche El Nil, Downtown, Cairo</p>
+          <svg class="divider light" aria-hidden="true"><use href="#divider"/></svg>
+          <p class="sunset">The sun sets over the Nile at <b>4:56</b>.<br>We begin at <b>seven</b>.</p>
+          <div class="actions">
+            <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Sofitel+Cairo+Downtown+Nile" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+              Open in Google Maps
+            </a>
+            <button class="btn btn-ghost" id="calBtn" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7Zm12 8v10H5V10h14Z"/></svg>
+              Add to calendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="finale">
+      <div class="wrap narrow">
+        <div class="seal seal-static" aria-hidden="true"><span class="seal-text">M<i>&amp;</i>H</span></div>
+        <p class="dua" lang="ar" data-reveal>بارك الله لكما، وبارك عليكما، وجمع بينكما في خير</p>
+        <h2 class="finale-names" data-reveal>Mohamed <span>&amp;</span> Hania</h2>
+        <p class="finale-date" data-reveal>27 · 11 · 2026</p>
+        <p class="finale-line" data-reveal>See you by the Nile <span class="dot">◆</span> <span lang="ar">نتشرف بحضوركم</span></p>
+        <button class="btn btn-ghost dark" id="shareBtn" type="button" data-reveal>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7c0 .3 0 .5.1.8L8.4 11.2a3 3 0 1 0 0 3.6l6.7 3.4A3 3 0 1 0 18 16Z"/></svg>
+          <span>Share the invitation</span>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Music toggle -->
+  <button class="music" id="musicBtn" type="button" aria-label="Play music" aria-pressed="false">
+    <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <div id="yt" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- SVG symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="corner" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-linecap="round">
+        <path d="M6 114 V44 C6 22 22 6 44 6 H114" stroke-width="1.2"/>
+        <path d="M15 114 V48 C15 30 30 15 48 15 H114" stroke-width=".6" opacity=".6"/>
+        <path d="M44 6 C44 22 34 30 22 30 C30 24 32 16 28 10" stroke-width=".9"/>
+        <path d="M6 44 C22 44 30 34 30 22" stroke-width=".9"/>
+      </g>
+      <path d="M30 30 l4 -4 l4 4 l-4 4z" fill="currentColor"/>
+      <circle cx="114" cy="6" r="1.6" fill="currentColor"/><circle cx="6" cy="114" r="1.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="divider" viewBox="0 0 220 16">
+      <g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+        <path d="M4 8 H88"/><path d="M132 8 H216"/>
+        <path d="M88 8 C96 8 100 2 110 2 C120 2 124 8 132 8 C124 8 120 14 110 14 C100 14 96 8 88 8Z"/>
+      </g>
+      <path d="M110 4 l4 4 l-4 4 l-4 -4z" fill="currentColor"/>
+      <circle cx="4" cy="8" r="1.5" fill="currentColor"/><circle cx="216" cy="8" r="1.5" fill="currentColor"/>
+    </symbol>
+    <symbol id="star8" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="22" y="22" width="56" height="56"/>
+        <rect x="22" y="22" width="56" height="56" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="50" r="16"/>
+      </g>
+      <circle cx="50" cy="50" r="4" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
